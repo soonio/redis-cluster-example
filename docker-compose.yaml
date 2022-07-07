@@ -1,0 +1,119 @@
+version: "3.1"
+
+services:
+
+  redis1:
+    image: redis
+    container_name: redis1
+    restart: always
+    networks:
+      union:
+        aliases:
+          - redis1.services.com
+    ports:
+      - "7001:7001"
+      - "17001:17001"
+    volumes:
+      - ./singleton/7001/conf/redis.conf:/etc/redis/redis.conf
+      - ./singleton/7001/data:/data
+    command:
+      ["redis-server", "/etc/redis/redis.conf"]
+
+  redis2:
+    image: redis
+    container_name: redis2
+    restart: always
+    networks:
+      union:
+        aliases:
+          - redis2.services.com
+    ports:
+      - "7002:7002"
+      - "17002:17002"
+    volumes:
+      - ./singleton/7002/conf/redis.conf:/etc/redis/redis.conf
+      - ./singleton/7002/data:/data
+    command:
+      ["redis-server", "/etc/redis/redis.conf"]
+
+  redis3:
+    image: redis
+    container_name: redis3
+    restart: always
+    networks:
+      union:
+        aliases:
+          - redis3.services.com
+    ports:
+      - "7003:7003"
+      - "17003:17003"
+    volumes:
+      - ./singleton/7003/conf/redis.conf:/etc/redis/redis.conf
+      - ./singleton/7003/data:/data
+    command:
+      ["redis-server", "/etc/redis/redis.conf"]
+
+  redis4:
+    image: redis
+    container_name: redis4
+    restart: always
+    networks:
+      union:
+        aliases:
+          - redis4.services.com
+    ports:
+      - "7004:7004"
+      - "17004:17004"
+    volumes:
+      - ./singleton/7004/conf/redis.conf:/etc/redis/redis.conf
+      - ./singleton/7004/data:/data
+    command:
+      ["redis-server", "/etc/redis/redis.conf"]
+
+  redis5:
+    image: redis
+    container_name: redis5
+    restart: always
+    networks:
+      union:
+        aliases:
+          - redis5.services.com
+    ports:
+      - "7005:7005"
+      - "17005:17005"
+    volumes:
+      - ./singleton/7005/conf/redis.conf:/etc/redis/redis.conf
+      - ./singleton/7005/data:/data
+    command:
+      ["redis-server", "/etc/redis/redis.conf"]
+
+  redis6:
+    image: redis
+    container_name: redis6
+    restart: always
+    networks:
+      union:
+        aliases:
+          - redis6.services.com
+    ports:
+      - "7006:7006"
+      - "17006:17006"
+    volumes:
+      - ./singleton/7006/conf/redis.conf:/etc/redis/redis.conf
+      - ./singleton/7006/data:/data
+    command:
+      ["redis-server", "/etc/redis/redis.conf"]
+#  centos:
+#    image: centos:7
+#    container_name: centos7
+#    networks:
+#      union:
+#        aliases:
+#          - centos7.services.com
+#    command:
+#      ["/usr/sbin/init"]
+
+networks:
+  union:
+    driver: bridge
+
